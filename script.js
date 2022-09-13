@@ -102,7 +102,7 @@ list.insertBefore(additionalLi2, list.children[1]);
 
 // d) string + element.insertAdjacentHTML()
 const html = `
-    <li>
+    <li id="li-to-remove">
         Element inserted using insertAdjacentHTML method.
     </li>
 `;
@@ -111,5 +111,35 @@ list.insertAdjacentHTML("beforeend", html);
 // 4. USUWANIE ELEMENTÓW
 
 // a) Czyszczenie zawartości elementów przy pomocy innerHTML.
-console.log(article1.innerHTML);
-article1.innerHTML = "";
+// console.log(article1.innerHTML);
+// article1.innerHTML = "";
+
+// b) element.remove()
+// Podstawowa metoda usuwania elementów ze strony, po prostu usuwa element na którym została wywołana.
+const liToRemove = document.getElementById("li-to-remove");
+liToRemove.remove();
+
+// c) element.removeChild()
+// Metoda usuwa wskazany element dziecko elementu na którym została wywołana.
+list.removeChild(list.children[1]);
+
+// 5. ZAMIANA ELEMENTÓW
+
+// a) element.replaceChild()
+// Metoda zamienia elementy dzieci w elemencie na którym zostanie wywołana. Na pierwszym argumencie przyjmuje nowy element (do wstawienia), na drugim stary element (do usunięcia).
+list.replaceChild(liToRemove, list.lastElementChild);
+
+// 6. KLONOWANIE ELEMENTÓW
+
+// a) element.cloneNode()
+// Metoda sklonuje element.
+
+// a.1) klonowanie płytkie
+// Klonowanie tylko tagów i atrybutów.
+const shallowDivClone = contentDiv.cloneNode(false);
+console.log(shallowDivClone);
+
+// a.2) klonowanie głębokie
+// Klonowanie tagów, atrybutów i wszystkich elementów dzieci
+const deepDivClone = contentDiv.cloneNode(true);
+console.log(deepDivClone);
