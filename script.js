@@ -75,7 +75,7 @@ const [article1, article2, article3, article4] =
   document.querySelectorAll("article");
 // console.log(article1, article2, article3, article4);
 
-// const [p1, p2, p3, p4] = document.getElementsByClassName("article-paragraph");
+const [p1, p2, p3, p4] = document.getElementsByClassName("article-paragraph");
 // console.log(p1, p2, p3, p4);
 // const listElement = document.querySelector("ul");
 // console.log(listElement);
@@ -137,9 +137,49 @@ list.replaceChild(liToRemove, list.lastElementChild);
 // a.1) klonowanie płytkie
 // Klonowanie tylko tagów i atrybutów.
 const shallowDivClone = contentDiv.cloneNode(false);
-console.log(shallowDivClone);
+// console.log(shallowDivClone);
 
 // a.2) klonowanie głębokie
 // Klonowanie tagów, atrybutów i wszystkich elementów dzieci
 const deepDivClone = contentDiv.cloneNode(true);
-console.log(deepDivClone);
+// console.log(deepDivClone);
+
+// 7. AKTUALIZACJA/DODAWANIE/USUWANIE ZAWARTOŚCI ELEMENTÓW
+
+// a) element.textContent i element.innerText
+// Metody stosowane zamiennie, jednak standardem jest textContent, więc to właśnie jego powinniśmy używać najczęściej.
+// console.log(liToRemove.textContent);
+// console.log(liToRemove.innerText);
+liToRemove.textContent = "123";
+liToRemove.innerText = "321";
+
+// b) element.innerHTML
+
+// console.log(contentDiv.innerHTML);
+// contentDiv.innerHTML = "<p>456</p>";
+
+// c) element.appendChild()
+
+// 8. AKTUALIZACJA/DODAWANIE/USUWANIE ATRYBUTÓW ELEMENTÓW.
+
+// a) element.attributes
+// Główne zastosowanie .attributes to sprawdzenie ilości atrybutów danego elementu.
+// console.log(p3.attributes.length);
+
+// b) element.setAttribute()
+// Metoda w pierwszym argumencie przyjmuje nazwę atrybutu do dodania, w drugim argumencie przyjmuje wartość atrybutu do dodania.
+p3.setAttribute("id", "third-paragraph");
+
+// c) element.id
+// Nadpisanie ID danego elementu
+p3.id = "123";
+// console.log(p3);
+
+// d) element.className
+// Nadpisanie klasy danego elementu
+// p3.className = "321";
+
+// e) element.removeAttribute()
+// Metoda usuwa atrybut podany w argumencie z elementu na którym została wywołana.
+p3.removeAttribute("id");
+console.log(p3);
