@@ -51,7 +51,32 @@ const list = document.querySelector("ul");
 
 // e) element.nextElementSibling / previousElement
 const middleLi = list.children[1];
-console.log(middleLi);
+// console.log(middleLi);
 
 // f) element.parentElement
-console.log(middleLi.parentElement);
+// console.log(middleLi.parentElement);
+
+// Zad 1.
+// Zapisz w zmiennych wszystkie elementy występujące w naszym dokumencie HTML. Staraj się nie modyfikować samego kodu HTML, lecz jeżeli będzie to konieczne, zrób to.
+
+const navElement1 = document.querySelector("nav");
+console.log(navElement1);
+const navH1Element = document.getElementById("nav-h1");
+console.log(navH1Element);
+const [span1, span2, span3, span4] =
+  document.getElementsByClassName("nav-span");
+console.log(span1, span2, span3, span4);
+const contentDiv1 = document.getElementById("content");
+console.log(contentDiv1);
+const [firstH2, secondH2, thirdH2, fourthH2] =
+  document.getElementsByTagName("h2");
+console.log(firstH2, secondH2, thirdH2, fourthH2);
+const [article1, article2, article3, article4] =
+  document.querySelectorAll("article");
+console.log(article1, article2, article3, article4);
+const [p1, p2, p3, p4] = document.getElementsByClassName("article-paragraph");
+console.log(p1, p2, p3, p4);
+const listElement = document.querySelector("ul");
+console.log(listElement);
+const [li1, li2, li3] = listElement.children;
+console.log(li1, li2, li3);
