@@ -59,24 +59,57 @@ const middleLi = list.children[1];
 // Zad 1.
 // Zapisz w zmiennych wszystkie elementy występujące w naszym dokumencie HTML. Staraj się nie modyfikować samego kodu HTML, lecz jeżeli będzie to konieczne, zrób to.
 
-const navElement1 = document.querySelector("nav");
-console.log(navElement1);
-const navH1Element = document.getElementById("nav-h1");
-console.log(navH1Element);
-const [span1, span2, span3, span4] =
-  document.getElementsByClassName("nav-span");
-console.log(span1, span2, span3, span4);
-const contentDiv1 = document.getElementById("content");
-console.log(contentDiv1);
-const [firstH2, secondH2, thirdH2, fourthH2] =
-  document.getElementsByTagName("h2");
-console.log(firstH2, secondH2, thirdH2, fourthH2);
+// const navElement1 = document.querySelector("nav");
+// console.log(navElement1);
+// const navH1Element = document.getElementById("nav-h1");
+// console.log(navH1Element);
+// const [span1, span2, span3, span4] =
+//   document.getElementsByClassName("nav-span");
+// console.log(span1, span2, span3, span4);
+// const contentDiv1 = document.getElementById("content");
+// console.log(contentDiv1);
+// const [firstH2, secondH2, thirdH2, fourthH2] =
+//   document.getElementsByTagName("h2");
+// console.log(firstH2, secondH2, thirdH2, fourthH2);
 const [article1, article2, article3, article4] =
   document.querySelectorAll("article");
-console.log(article1, article2, article3, article4);
-const [p1, p2, p3, p4] = document.getElementsByClassName("article-paragraph");
-console.log(p1, p2, p3, p4);
-const listElement = document.querySelector("ul");
-console.log(listElement);
-const [li1, li2, li3] = listElement.children;
-console.log(li1, li2, li3);
+// console.log(article1, article2, article3, article4);
+
+// const [p1, p2, p3, p4] = document.getElementsByClassName("article-paragraph");
+// console.log(p1, p2, p3, p4);
+// const listElement = document.querySelector("ul");
+// console.log(listElement);
+// const [li1, li2, li3] = listElement.children;
+// console.log(li1, li2, li3);
+
+// 3. TWORZENIE I DODAWANIE ELEMENTÓW
+
+// a) document.createElement()
+// Tworzy obiektową reprezentacje podanego w arugmencie elementu.
+const additionalLi = document.createElement("li");
+additionalLi.textContent = "This was appended using .appendChild() method.";
+// console.log(additionalLi);
+
+// b) element.appendChild()
+// Metoda doda nowy element dziecko jako ostatnie z dzieci elementu na którym została wywołana.
+list.appendChild(additionalLi);
+
+// c) element.insertBefore()
+// Metoda doda nowy element dziecko (1 argument) przed element dziecko tego samego elementu podany na drugim argumencie.
+const additionalLi2 = document.createElement("li");
+additionalLi2.textContent = "This is the second additional li.";
+list.insertBefore(additionalLi2, list.children[1]);
+
+// d) string + element.insertAdjacentHTML()
+const html = `
+    <li>
+        Element inserted using insertAdjacentHTML method.
+    </li>
+`;
+list.insertAdjacentHTML("beforeend", html);
+
+// 4. USUWANIE ELEMENTÓW
+
+// a) Czyszczenie zawartości elementów przy pomocy innerHTML.
+console.log(article1.innerHTML);
+article1.innerHTML = "";
