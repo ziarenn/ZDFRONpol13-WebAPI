@@ -273,3 +273,60 @@ const renderHomePage = () => {
 };
 renderHomePage();
 document.body.appendChild(contentDivToAdd);
+
+// Zad 3. Formularz kontaktowy
+// a) Stwórz funkcję displayForm()
+// W funkcji:
+// b) stwórz element <form> i nadaj mu id 'contact-form'
+// c) stwórz element <h2> i nadaj mu textContent 'Contact us!'
+// d) stwórz element <input> i nadj mu type 'email' oraz id 'contact-form-input-email'
+// e) stwórz element <textarea> i nadaj mu id 'contact-form-textarea'
+// f) stwórz element <button> i nadaj mu type 'submit', id 'contact-form-submit-button' oraz textContent na 'Send'
+// g) podepnij wszystkie elementy (przy pomocy metody appendChild) do elementu form, a sam form podepnij do diva content
+// h) testowo wywołaj funkcje
+
+// a)
+const displayForm = () => {
+  // b)
+  const form = document.createElement("form");
+  form.setAttribute("id", "contact-form");
+  // c)
+  const h2 = document.createElement("h2");
+  h2.textContent = "Contact us!";
+  // d)
+  const input = document.createElement("input");
+  input.setAttribute("type", "email");
+  input.setAttribute("id", "contact-form-input-email");
+  // e)
+  const textarea = document.createElement("textarea");
+  textarea.setAttribute("id", "contact-form-textarea");
+  // f)
+  const button = document.createElement("button");
+  button.setAttribute("type", "submit");
+  button.setAttribute("id", "contact-form-submit-button");
+  button.textContent = "Send";
+  // g)
+  form.appendChild(h2);
+  form.appendChild(input);
+  form.appendChild(textarea);
+  form.appendChild(button);
+  contentDivToAdd.appendChild(form);
+};
+displayForm();
+
+const contactForm = document.getElementById("contact-form");
+contactForm.addEventListener("submit", function (event) {
+  // TYLKO PRZY REAGOWANIU NA SUBMIT
+  event.preventDefault();
+
+  console.log("Form submited");
+  console.log(event);
+
+  // Jak odczytać wartość inputów?
+  const input = document.getElementById("contact-form-input-email");
+  const textarea = document.getElementById("contact-form-textarea");
+  const inputValue = input.value;
+  const textareaValue = textarea.value;
+  console.log(inputValue);
+  console.log(textareaValue);
+});
