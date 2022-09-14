@@ -341,3 +341,21 @@ homeSpans[1].addEventListener("click", function () {
   contentDivToAdd.innerHTML = "";
   displayForm();
 });
+// "https://jsonplaceholder.typicode.com/todos/"
+// 1. Stwórz funckję fetchAndDisplayJSON (async)
+// W funkcji:
+// 2. Wykonaj fetcha i rozpakuj dane (fetch, .json())
+// 3. Stwórz element <ul>
+// 4. Za pomocą metody .map(), przejeżdżając po otrzymanych, stwórz listę z elementami li (w środku funkcji callbackowej mapa musisz stworzyć element <li>, w zależności od pola completed ustawić kolor na zielony lub czerwony oraz ustawić textContent w którym ma się znaleźć User id, id, i title, na końcu funkcji callbackowej zwróć skonfigurowany element li)
+// element.style.color = 'red' / element.style.color = 'green'
+// textContent: `User id: ${el.userId}, Todo id: ${el.id}, ${el.title}
+// return li
+// 5. Za pomocą pętli forEach podepnij wszystkie li do listy <ul> (pkt 3)
+// 6. Podepnij <ul> (pkt 3) do content div.
+// (koniec funkcji)
+// 7. Stwórz nową podstronę tak jak przed chwilą (homeSpans[2].addEventListener('click'...), w środku event listenera wywołaj fetchAndDisplayJSON
+
+// const zwroc = data.map(el => {
+//   // ...
+//   return li
+// })
