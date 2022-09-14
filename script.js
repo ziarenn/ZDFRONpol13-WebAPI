@@ -63,8 +63,8 @@ const middleLi = list.children[1];
 // console.log(navElement1);
 // const navH1Element = document.getElementById("nav-h1");
 // console.log(navH1Element);
-// const [span1, span2, span3, span4] =
-//   document.getElementsByClassName("nav-span");
+const [span1, span2, span3, span4] =
+  document.getElementsByClassName("nav-span");
 // console.log(span1, span2, span3, span4);
 // const contentDiv1 = document.getElementById("content");
 // console.log(contentDiv1);
@@ -312,21 +312,32 @@ const displayForm = () => {
   form.appendChild(button);
   contentDivToAdd.appendChild(form);
 };
-displayForm();
 
-const contactForm = document.getElementById("contact-form");
-contactForm.addEventListener("submit", function (event) {
-  // TYLKO PRZY REAGOWANIU NA SUBMIT
-  event.preventDefault();
+// const contactForm = document.getElementById("contact-form");
+// contactForm.addEventListener("submit", function (event) {
+//   // TYLKO PRZY REAGOWANIU NA SUBMIT
+//   event.preventDefault();
 
-  console.log("Form submited");
-  console.log(event);
+//   console.log("Form submited");
+//   console.log(event);
 
-  // Jak odczytać wartość inputów?
-  const input = document.getElementById("contact-form-input-email");
-  const textarea = document.getElementById("contact-form-textarea");
-  const inputValue = input.value;
-  const textareaValue = textarea.value;
-  console.log(inputValue);
-  console.log(textareaValue);
+//   // Jak odczytać wartość inputów?
+//   const input = document.getElementById("contact-form-input-email");
+//   const textarea = document.getElementById("contact-form-textarea");
+//   const inputValue = input.value;
+//   const textareaValue = textarea.value;
+//   console.log(inputValue);
+//   console.log(textareaValue);
+// });
+
+const homeSpans = document.getElementsByClassName("nav-span");
+
+homeSpans[0].addEventListener("click", function () {
+  contentDivToAdd.innerHTML = "";
+  renderHomePage();
+});
+
+homeSpans[1].addEventListener("click", function () {
+  contentDivToAdd.innerHTML = "";
+  displayForm();
 });
