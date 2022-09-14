@@ -182,4 +182,94 @@ p3.id = "123";
 // e) element.removeAttribute()
 // Metoda usuwa atrybut podany w argumencie z elementu na którym została wywołana.
 p3.removeAttribute("id");
-console.log(p3);
+// console.log(p3);
+
+// Zad 2.
+// a) Usuń wszystkie elementy z body przy pomocy element.remove()
+// b) Odtwórz stronę przy pomocy wcześniej poznanych metod (document.createElement, insertAdjacentHTML, setAttribute, appendChild itd.).
+
+// a)
+navElement.remove();
+contentDiv.remove();
+
+const navElementToAdd = document.createElement("nav");
+// <h1 id="nav-h1">DOM</h1>
+const h1Element = document.createElement("h1");
+h1Element.setAttribute("id", "nav-h1");
+h1Element.textContent = "DOM";
+navElementToAdd.appendChild(h1Element);
+
+/* <span class="nav-span">Home</span>
+      <span class="nav-span">Page 1</span>
+      <span class="nav-span">Page 2</span>
+      <span class="nav-span">Page 3</span> */
+
+const spanTextContents = ["Home", "Page 1", "Page 2", "Page 3"];
+// spanTextContents.forEach((text) => {
+//   const span = document.createElement("span");
+//   span.setAttribute("class", "nav-span");
+//   span.textContent = text;
+//   navElementToAdd.appendChild(span);
+// });
+
+// navElementToAdd.children[2];
+
+for (let i = 0; i < 4; i++) {
+  if (i === 0) {
+    const span = document.createElement("span");
+    span.setAttribute("class", "nav-span");
+    span.textContent = "Home";
+    navElementToAdd.appendChild(span);
+  } else {
+    const span = document.createElement("span");
+    span.setAttribute("class", "nav-span");
+    span.textContent = `Page ${i}`;
+    navElementToAdd.appendChild(span);
+  }
+}
+document.body.appendChild(navElementToAdd);
+
+const contentDivToAdd = document.createElement("div");
+contentDivToAdd.setAttribute("id", "content");
+
+/* <article >
+<h2>How to access the DOM?</h2>
+<p class="article-paragraph">
+  You don't have to install anything additional, just JavaScript will
+  do. We have a few methods called 'selectors', these methods are used
+  to access DOM elements and are found on the global 'document' object, which is an object representation of the whole HTML document. Here are <strong>some</strong> of them:
+  <ul>
+    <li>document.querySelector('cssSelectorHere')</li>
+    <li>document.getElementById('elementsIdHere')</li>
+    <li>document.getElementsByClassName('classNameHere')</li>
+  </ul>
+</p class="article-paragraph">
+</article> */
+
+const renderHomePage = () => {
+  const articleToAdd = document.createElement("article");
+  const h2ToAdd = document.createElement("h2");
+  h2ToAdd.textContent = "How to access the DOM?";
+  articleToAdd.appendChild(h2ToAdd);
+  const pToAdd = document.createElement("p");
+  pToAdd.setAttribute("class", "article-paragraph");
+  pToAdd.textContent = `You don't have to install anything additional, just JavaScript will
+  do. We have a few methods called 'selectors', these methods are used
+  to access DOM elements and are found on the global 'document' object, which is an object representation of the whole HTML document. Here are some of them:`;
+  const ulToAdd = document.createElement("ul");
+  const liTextContents = [
+    "document.querySelector('cssSelectorHere')",
+    "document.getElementById('elementsIdHere')",
+    "document.getElementsByClassName('classNameHere')",
+  ];
+  liTextContents.forEach((text) => {
+    const li = document.createElement("li");
+    li.textContent = text;
+    ulToAdd.appendChild(li);
+  });
+  pToAdd.appendChild(ulToAdd);
+  articleToAdd.appendChild(pToAdd);
+  contentDivToAdd.appendChild(articleToAdd);
+};
+renderHomePage();
+document.body.appendChild(contentDivToAdd);
