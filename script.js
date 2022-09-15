@@ -355,7 +355,57 @@ homeSpans[1].addEventListener("click", function () {
 // (koniec funkcji)
 // 7. Stwórz nową podstronę tak jak przed chwilą (homeSpans[2].addEventListener('click'...), w środku event listenera wywołaj fetchAndDisplayJSON
 
-// const zwroc = data.map(el => {
-//   // ...
-//   return li
-// })
+// const liList = data.map((el) => {
+//   // const li = ...
+//   // if(el.completed) li.style.color = 'green'
+//   // else li.style.color = 'red'
+//   // li.textContent
+//   // return li
+// });
+
+// 1.
+const fetchAndDisplayJSON = async () => {
+  // 2.
+  const response = await fetch("https://jsonplaceholder.typicode.com/todos/");
+  const data = await response.json();
+  console.log(data);
+
+  // 3.
+  const ul = document.createElement("ul");
+
+  // 4.
+  const liElements = data.map((todo) => {
+    const li = document.createElement("li");
+    if (todo.completed) li.style.color = "green";
+    else li.style.color = "red";
+    li.textContent = `User id: ${todo.userId}, Todo id: ${todo.id}, ${todo.title}`;
+    return li;
+  });
+
+  // 5.
+  liElements.forEach((li) => ul.appendChild(li));
+  contentDivToAdd.appendChild(ul);
+};
+// fetchAndDisplayJSON();
+
+homeSpans[2].addEventListener("click", function () {
+  contentDivToAdd.innerHTML = "";
+  fetchAndDisplayJSON();
+});
+
+// Zad 4.1 Kalkulator
+// 1. Stwórz funkcje renderCalculator (zwykła fn)
+// 2. Stwórz element <form> i ustaw jego id na 'calculator'
+// 3. Stwórz 2 inputy, obu nadaj type 'number' (setAttribute), pierwszemu nadaj id 'first-number-input', drugiemu 'second-number-input'
+// 4. Stwórz element <select> (createElement)
+// 5. Stwórz zwykły array: ["+", "-", "*", "/"], nazwij go 'options'.
+// 6. Metodą map przejedź po arrayu options i zapisz wynik do zmiennej optionElements.
+// W metodzie map:
+// - stwórz element <option>
+// - nadaj mu atrybut value na aktualny element po którym iterujesz (pierwszy parametr metody map)
+// - nadaj mu textContent na aktualny element po którym iterujesz (pierwszy parametr metody map)
+// - zwróc z mapa element <option> przy pomocy return
+// 7. Wywołaj metode forEach na liście optionElements.
+// W metodzie forEach:
+// - podepnij element po którym aktualnie iterujesz (pierwszy parametr metody forEach) do wcześniej stworzonego elementu <select>
+// console.log(select)
