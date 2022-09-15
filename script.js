@@ -409,3 +409,37 @@ homeSpans[2].addEventListener("click", function () {
 // W metodzie forEach:
 // - podepnij element po którym aktualnie iterujesz (pierwszy parametr metody forEach) do wcześniej stworzonego elementu <select>
 // console.log(select)
+
+// 1.
+const renderCalculator = () => {
+  // 2.
+  const form = document.createElement("form");
+  form.setAttribute("id", "calculator");
+
+  // 3.
+  const firstNumberInput = document.createElement("input");
+  firstNumberInput.setAttribute("type", "number");
+  firstNumberInput.setAttribute("id", "first-number-input");
+
+  const secondNumberInput = document.createElement("input");
+  secondNumberInput.setAttribute("type", "number");
+  secondNumberInput.setAttribute("id", "second-number-input");
+
+  // 4.
+  const select = document.createElement("select");
+
+  // 5.
+  const options = ["+", "-", "*", "/"];
+
+  // 6.
+  const optionElements = options.map((option) => {
+    const optionEl = document.createElement("option");
+    optionEl.setAttribute("value", option);
+    optionEl.textContent = option;
+    return optionEl;
+  });
+  // 7.
+  optionElements.forEach((option) => select.appendChild(option));
+  console.log(select);
+};
+renderCalculator();
