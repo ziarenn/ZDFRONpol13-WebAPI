@@ -409,6 +409,23 @@ homeSpans[2].addEventListener("click", function () {
 // W metodzie forEach:
 // - podepnij element po którym aktualnie iterujesz (pierwszy parametr metody forEach) do wcześniej stworzonego elementu <select>
 // console.log(select)
+// 8. Stwórz element <button>
+// - nadaj mu type 'submit'
+// - nadaj mu id 'calculator-submit-button'
+// - nadaj mu textContent 'GO'
+// 9. Stwórz element <span>
+// - nadaj mu id 'result-span'
+// 10. Stwórz element <h2>
+// - nadaj mu textContent 'Calculator'
+// 11. Podepnij wszystkie stworzone elementy do elementu <form> za pomocą metody appendChild, kolejność:
+// - h2
+// - firstNumberInput
+// - secondNumberInput
+// - select
+// - submitButton
+// - resultSpan
+// 12. Podepnij element <form> do content diva.
+// 13. Stwórz nową podstronę i tam wyświetlaj kalkulator.
 
 // 1.
 const renderCalculator = () => {
@@ -441,5 +458,7 @@ const renderCalculator = () => {
   // 7.
   optionElements.forEach((option) => select.appendChild(option));
   console.log(select);
+
+  // 8.
 };
 renderCalculator();
