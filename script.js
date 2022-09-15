@@ -460,5 +460,34 @@ const renderCalculator = () => {
   console.log(select);
 
   // 8.
+  const button = document.createElement("button");
+  button.setAttribute("type", "submit");
+  button.setAttribute("id", "calculator-submit-button");
+  button.textContent = "GO";
+
+  // 9.
+  const span = document.createElement("span");
+  span.setAttribute("id", "result-span");
+
+  // 10.
+  const h2 = document.createElement("h2");
+  h2.textContent = "Calculator";
+
+  // 11.
+  form.appendChild(h2);
+  form.appendChild(firstNumberInput);
+  form.appendChild(secondNumberInput);
+  form.appendChild(select);
+  form.appendChild(button);
+  form.appendChild(span);
+
+  // 12.
+  contentDivToAdd.appendChild(form);
 };
-renderCalculator();
+
+homeSpans[3].addEventListener("click", function () {
+  // 1. Czyszczenie content diva
+  contentDivToAdd.innerHTML = "";
+  renderCalculator();
+});
+
